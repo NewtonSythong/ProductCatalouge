@@ -1,0 +1,71 @@
+@startuml
+
+skinparam {
+    Style strictuml
+    RoundCorner 5
+    BoxPadding 35
+    ParticipantPadding 15
+    Padding 2
+
+    Sequence {
+        LifeLineBackgroundColor #FDFDCD
+
+        Stereotype {
+            Font {
+                Size 11
+                Style plain
+            }
+        }
+    }
+
+    Database {
+        BorderColor #A80036
+    }
+
+}
+
+Actor Customer as user
+
+box "             Web Browser             " #white
+Participant "view-products" as page << HTML >>
+participant "view-products.js" as controller <<Vue>>
+participant "axios" as axios <<HTTP client >>
+end box
+
+box "Web Server" #white
+Participant "Server" as service << Jooby >>
+Participant "ProductModule" as module << Jooby >>
+Participant "ProductDAO" as dao << DAO >>
+end box
+
+database "Database" as db
+
+user -> page++ : clicks one of the categories
+page -> controller++ : send the category to the controller
+controller -> axios++ : get("/api/categories/${category}")
+axios -> service++ : HTTP GET /api/categories/${category}
+service -> module++ :  get("/api/categories/${category}")
+module -> module++ : extract category from HTTP
+module -> dao++ : filterByCategory(category)
+dao -> db++ : select * from product\nwhere category = :category
+return result
+return products
+module--
+return products
+return JSON encoded products
+return JavaScript products
+return return template merged with filtered products
+return filtered products displayed to user
+
+
+
+
+
+
+
+
+
+
+
+
+@enduml
