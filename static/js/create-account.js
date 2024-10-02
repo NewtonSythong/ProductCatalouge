@@ -42,8 +42,8 @@ import { navigationMenu } from './navigation-menu.js';
 app.component('navmenu', navigationMenu);
 
 // import data store
-import { dataStore } from './data-store.js';
-app.use(dataStore);
+import { sessionStore } from './session-store.js'
+app.use(sessionStore);
 
 
 // mount the page - this needs to be the last line in the file

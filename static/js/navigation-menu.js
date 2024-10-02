@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Other/javascript.js to edit this template
  */
 
+"use strict";
 
 export const navigationMenu = {
 
@@ -11,12 +12,12 @@ export const navigationMenu = {
             return this.customer != null;
         },
         ...Vuex.mapState({
-            customer: 'customer'
+                customer: 'customer'
         })
     },
 
     template:
-    `
+            `
     <nav>
         <a style="float: right;" v-if="signedIn">Welcome {{customer.firstName}}</a> 
         <a href=".">Home</a>
@@ -27,7 +28,7 @@ export const navigationMenu = {
     </nav>
     `,
 
-    methods:{
+    methods: {
         signOut() {
             sessionStorage.clear();
             window.location = '.';

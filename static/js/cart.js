@@ -28,23 +28,20 @@ const app = Vue.createApp({
 
     data() {
         return {
-            // models (comma separated key/value pairs)
+// models (comma separated key/value pairs)
 
         };
     },
-
     computed: Vuex.mapState({
         product: 'selectedProduct',
         items: 'items',
         customer: 'customer'
     }),
-
     mounted() {
-        // semicolon separated statements
+// semicolon separated statements
 
 
     },
-
     methods: {
         // comma separated function declarations
         checkOut() {
@@ -58,17 +55,31 @@ const app = Vue.createApp({
                     .catch(error => {
                         alert(error.response.data.message);
                     });
-        },
+        }
+    },
+// other modules
+    mixins: [NumberFormatter]
 
-    }
 
 });
 
 /* other component imports go here */
 
 // import data store
-import { sessionStore } from './session-store.js'
-        app.use(sessionStore);
+
+// import navigation  menu component
+import { navigationMenu }
+from './navigation-menu.js';
+app.component('navmenu', navigationMenu);
+
+
+import { sessionStore }
+from './session-store.js';
+app.use(sessionStore);
+
+//import number formatter
+import { NumberFormatter }
+from './number-formatter.js';
 
 // mount the page - this needs to be the last line in the file
 app.mount("main");

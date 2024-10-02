@@ -33,8 +33,8 @@
                         <tr v-for="product in products" style="height: 100px;">
                             <td>{{product.name}}</td>
                             <td>{{product.description}}</td>
-                            <td style="text-align: center;"> {{product.listPrice}} </td>
-                            <td style="text-align: center;"> {{product.quantityInStock}} </td>
+                            <td style="text-align: center;">{{formatCurrency(product.listPrice)}}</td>
+                            <td style="text-align: center;">{{formatNumber(product.quantityInStock)}}</td>
                             <td><button @click.prevent="buyProduct(product)">Buy</button></td>
                         </tr>
                     </tbody>

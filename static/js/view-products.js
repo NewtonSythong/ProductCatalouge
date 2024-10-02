@@ -61,7 +61,7 @@ const app = Vue.createApp({
     },
 
     // other modules
-    mixins: []
+    mixins:[NumberFormatter]
 });
 
 //imports 

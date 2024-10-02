@@ -34,7 +34,7 @@ const app = Vue.createApp({
         }
     },
     // other modules
-    mixins: []
+    mixins: [NumberFormatter]
 });
 
 //imports 
@@ -47,6 +47,8 @@ app.component('navmenu', navigationMenu);
 import { sessionStore } from './session-store.js';
 app.use(sessionStore);
 
+//import number formatter
+import { NumberFormatter } from './number-formatter.js';
 
 // mount the page - this needs to be the last line in the file
 app.mount("main");
