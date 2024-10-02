@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Sign in</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+    </head>
+    <body>
+        <main>
+            <h1>Sign In</h1>
+            <navmenu></navmenu>
+            <div class ="content">
+                <fieldset>
+                    <legend>Sign In</legend>
+                    <form @submit.prevent="signIn()">
+                        <label>Username:</label><input type="text" v-model="customer.username" required/>
+                        <label>Password:</label><input type="password" v-model="customer.password" required/>
+                        <button type="submit">SIGN IN</button>
+                    </form>
+                </fieldset>
+                <p>If you haven't made an account yet, then you can <a href="create-account.html">register here</a>.</p>
+            </div>
+        </main>
+        <script type="module" src="js/sign-in.js"></script>
+    </body>
+</html>

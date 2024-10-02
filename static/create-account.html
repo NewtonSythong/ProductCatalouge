@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Create Account</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+    </head>
+    <body>
+        <main>
+            <navmenu></navmenu>
+            <h1>Create Account</h1>
+            <form @submit.prevent="createAccount()"/>
+
+            <label>Username:</label><input name="username" type="text" v-model="customer.username" required/>
+            <label>First Name</label><input name="firstName" type="text" v-model="customer.firstName" required/>
+            <label>Last Name</label><input name="lastName" type="text" v-model="customer.surname" required>
+            <label>Email:</label><input name="email" type="email" v-model="customer.emailAddress" required/>
+            <label>Address:</label><textarea name="address" v-model="customer.shippingAddress"></textarea>
+            <label>Password:</label><input name="password" type="password" v-model="customer.password" required/>
+
+            <button type="submit">Create Account</button>
+        </form>
+    </main>
+    <script type="module" src="js/create-account.js"></script>
+</body>
+</html>

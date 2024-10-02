@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Products</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+    </head>
+    <body>
+        <main>
+
+            <h1>Products</h1>
+            <navmenu></navmenu>
+            <div class="content">
+                <div class="categories">
+                    <button class="category" @click.prevent="getProducts()">All</button>
+                    <button class="category" @click.prevent="filterByCategory(category)"
+                            v-for="category in categories">{{category}}</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align: left;">Name</th>
+                            <th style="text-align: left;">Description</th>
+                            <th>Price</th>
+                            <th>Available</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="product in products" style="height: 100px;">
+                            <td>{{product.name}}</td>
+                            <td>{{product.description}}</td>
+                            <td style="text-align: center;"> {{product.listPrice}} </td>
+                            <td style="text-align: center;"> {{product.quantityInStock}} </td>
+                            <td><button @click.prevent="buyProduct(product)">Buy</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <script type="module" src="js/view-products.js"></script>
+    </body>
+</html>
