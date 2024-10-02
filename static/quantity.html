@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Products</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+    </head>
+    <body>
+        <main>
+            <navmenu></navmenu>
+            <h1>{{product.name}}</h1>
+            <div class="content">
+                <div class="image">
+                </div> 
+
+                <div class="text">
+                    <h3>Category</h3>
+                    <p>{{product.category}}</p>
+                    <h3>Description</h2>
+                        <p>{{product.description}}</p>
+                        <p><b>Price</b> ${{product.listPrice}}</p>
+                        <p><b>Available</b> {{product.quantityInStock}}</p>
+
+                        <div class="button-label">
+                            <h3>Quantity</h3>
+                        </div>
+
+                        <div class="plus-minus">
+                            <input type="number" id="input" v-model.number="quantity" min="1" @keypress="isNumber($event)" @change="isEmpty($event)"/>
+                        </div>
+
+                        <button class="add-to-cart" @click.prevent="addProductToCart()">Add to cart</button>
+                </div>
+            </div>    
+        </main>
+        <script type="module" src="js/cart.js"></script> 
+    </body>
+</html>

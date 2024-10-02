@@ -19,7 +19,7 @@ import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 public interface CustomerJdbiDAO extends CustomerDAO {
 
     @Override
-    @SqlQuery("SELECT * FROM customer ORDER BY customer_id")
+    @SqlQuery("SELECT * FROM customer ORDER BY customerid")
     @RegisterBeanMapper(Customer.class)
     public Collection<Customer> getCustomers();
 
@@ -37,7 +37,7 @@ public interface CustomerJdbiDAO extends CustomerDAO {
     public boolean checkCustomer(@Bind("username") String username, @Bind("password") String password);
 
     @Override
-    @SqlUpdate("INSERT INTO customer (username, first_name, surname, password, email_address, shipping_address) "
+    @SqlUpdate("INSERT INTO customer (username, firstname, surname, password, emailaddress, shippingaddress) "
             + "VALUES (:username, :firstName, :surname, :password, :emailAddress, :shippingAddress)")
     public void saveCustomer(@BindBean Customer customer);
 

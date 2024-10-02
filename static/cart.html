@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Products</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+    </head>
+    <body>
+        <main>
+            <navmenu></navmenu>
+
+            <h1>Shopping Cart</h1>
+            <div class="content">
+                <table id="cartTable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th style="text-align: left;">Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in items">       
+                            <td></td>
+                            <td>{{item.product.name}}</td>
+                            <td style="text-align: center;">{{formatCurrency(item.salePrice)}}</td>
+                            <td style="text-align: center;">{{item.quantityPurchased}}</td>
+                            <td style="text-align: center;">{{formatCurrency(getItemTotal(item))}}</td>
+                        </tr>
+                        <tr style="height: 45px;">                            
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="text-align: center; font-weight: bold;">Total</td>
+                            <td style="text-align: center;">{{formatCurrency(getTotal())}}</td>                      
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="checkoutButton">
+                    <button @click.prevent="checkOut()">Checkout</button>
+                </div>
+            </div>
+        </main>
+        <script type="module" src="js/cart.js"></script>
+    </body>
+</html>

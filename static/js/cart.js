@@ -49,13 +49,43 @@ const app = Vue.createApp({
             console.log();
             axios.post(salesApi, sale)
                     .then(() => {
-                        dataStore.commit("clearItems");
+                        sessionStore.commit("clearItems");
                         window.location = 'order-confirmation.html';
                     })
                     .catch(error => {
                         alert(error.response.data.message);
                     });
-        }
+        },
+        addProductToCart() {
+            sessionStore.commit("addItem", new SaleItem(this.product, this.quantity));
+            window.location = "view-products.html";
+        },
+        getItemTotal(item) {
+            var itemTotal = item.salePrice * item.quantityPurchased;
+            total += itemTotal;
+            return itemTotal;
+        },
+        getTotal() {
+            return total;
+        },
+        isNumber: function (evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+                evt.preventDefault();
+            } else {
+                return true;
+            }
+        },
+        isEmpty: function (evt) {
+            if (evt.target.value === '' || evt.target.value.charAt(0) === '0') {
+                this.quantity = 1;
+            }
+            if (evt.target.value > this.product.quantityInStock) {
+                this.quantity = this.product.quantityInStock;
+            }
+        },
+
     },
 // other modules
     mixins: [NumberFormatter]

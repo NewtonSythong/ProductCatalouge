@@ -21,7 +21,7 @@ public interface ProductJdbiDAO extends ProductDAO {
     public Collection<String> getCategories();
     
     @Override
-    @SqlQuery("SELECT * FROM PRODUCT ORDER BY PRODUCTID0")
+    @SqlQuery("SELECT * FROM PRODUCT ORDER BY PRODUCTID")
     @RegisterBeanMapper(Product.class)
     public Collection<Product> getProducts();
     
