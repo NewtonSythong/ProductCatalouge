@@ -4,13 +4,15 @@
  */
 package dao;
 
-import domain.Customer;
 import java.util.Collection;
+
 import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
 import org.jdbi.v3.sqlobject.customizer.Bind;
 import org.jdbi.v3.sqlobject.customizer.BindBean;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
+
+import domain.Customer;
 
 /**
  *
@@ -34,7 +36,7 @@ public interface CustomerJdbiDAO extends CustomerDAO {
 
     @Override
     @SqlQuery("SELECT COUNT(*) > 0 FROM customer WHERE username = :username AND password = :password")
-    public boolean checkCustomer(@Bind("username") String username, @Bind("password") String password);
+    public Boolean checkCustomer(@Bind("username") String username, @Bind("password") String password);
 
     @Override
     @SqlUpdate("INSERT INTO customer (username, firstname, surname, password, emailaddress, shippingaddress) "

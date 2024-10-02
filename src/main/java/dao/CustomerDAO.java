@@ -11,11 +11,12 @@ import java.util.Collection;
  *
  * @author sageb
  */
-public interface CustomerDAO {
+public interface CustomerDAO extends CredentialsValidator{
 
     void saveCustomer(Customer customer);
 
-    boolean checkCustomer(String username, String password);
+    @Override
+    Boolean checkCustomer(String username, String password);
 
     Customer getCustomerByUsername(String username);
 

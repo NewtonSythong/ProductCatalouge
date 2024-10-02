@@ -6,7 +6,10 @@ import dao.ProductDAO;
 import dao.SaleDAO;
 import io.jooby.Jooby;
 import io.jooby.ServerOptions;
+import io.jooby.StatusCode;
 import io.jooby.gson.GsonModule;
+import java.nio.file.Paths;
+import java.util.Set;
 
 public class Server extends Jooby {
 
@@ -18,16 +21,22 @@ public class Server extends Jooby {
 
         System.out.println("\nStarting Server.");
         new Server()
-                .setServerOptions(new ServerOptions().setPort(8087))
+//                .setServerOptions(new ServerOptions().setPort(8087))
                 .start();
     }
 
     public Server() {
-        install(new GsonModule());
         mount(new StaticAssetModule());
+        install(new GsonModule());
+        install(new BasicAccessAuth(customerDAO, Set.of("/api/.*"), Set.of("/api/register")));
         mount(new ProductModule((ProductDAO) productDAO));
         mount(new CustomerModule((CustomerDAO) customerDAO));
-        mount(new SaleModule((SaleDAO) saleDAO));
+        mount(new SaleModule(saleDAO, productDAO));
+        
+        error(StatusCode.SERVER_ERROR, (ctx, cause, code) -> {
+            ctx.getRouter().getLog().error(cause.getMessage(), cause);
+            ctx.send(Paths.get("static/500.html"));
+        });
     }
 
 }

@@ -22,6 +22,7 @@ const app = Vue.createApp({
     },
     methods: {
         signIn() {
+            this.createToken(this.customer.username, this.customer.password);
             axios.get(customer({'username': this.customer.username}))
                 .then(response => {
                     this.customer = response.data;
@@ -34,7 +35,7 @@ const app = Vue.createApp({
         }
     },
     // other modules
-    mixins: [NumberFormatter]
+    mixins: [BasicAccessAuthentication]
 });
 
 //imports 
@@ -47,8 +48,8 @@ app.component('navmenu', navigationMenu);
 import { sessionStore } from './session-store.js';
 app.use(sessionStore);
 
-//import number formatter
-import { NumberFormatter } from './number-formatter.js';
+// import authentication module
+import { BasicAccessAuthentication } from './authentication.js';
 
 // mount the page - this needs to be the last line in the file
 app.mount("main");

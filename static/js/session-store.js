@@ -16,6 +16,8 @@ export const sessionStore = Vuex.createStore({
         // selected product
         selectedProduct: null;
 
+        // basic access authentication token
+        authToken: null;
 
     },
 

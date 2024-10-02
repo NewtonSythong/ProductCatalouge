@@ -60,7 +60,7 @@ const app = Vue.createApp({
     },
 
     // other modules
-    mixins: [NumberFormatter]
+    mixins: [NumberFormatter, BasicAccessAuthentication]
 });
 
 //imports 
@@ -69,6 +69,9 @@ import { navigationMenu } from './navigation-menu.js';
 
 // register the navigation menu under the <navmenu> tag
 app.component('navmenu', navigationMenu);
+
+// import authentication module
+import { BasicAccessAuthentication } from './authentication.js';
 
 // import session store
 import { sessionStore } from './session-store.js';

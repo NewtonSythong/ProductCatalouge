@@ -4,10 +4,11 @@
  */
 package dao;
 
-import domain.Customer;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
+import domain.Customer;
 
 /**
  *
@@ -23,7 +24,7 @@ public class CustomerCollectionsDAO implements CustomerDAO {
     }
 
     @Override
-    public boolean checkCustomer(String username, String password) {
+    public Boolean checkCustomer(String username, String password) {
         Customer customer = customers.get(username);
         return customer != null && customer.getPassword().equals(password);
     }
