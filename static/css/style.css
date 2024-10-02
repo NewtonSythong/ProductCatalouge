@@ -1,0 +1,94 @@
+/* centre the main content area */
+main {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* page headings */
+h1 {
+    text-align: center;
+    padding: 10px;
+}
+/* nav links */
+nav a {
+    border:solid;
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+nav .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0; /* Remove any default margin */
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: solid;
+}
+
+nav {
+    text-align: center;
+}
+
+/* tables */
+table {
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 0px 0px;
+}
+
+td, th {
+    border: thin;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* forms */
+form {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-gap: 1em 0.5em;
+}
+
+label {
+    grid-column: 1 / 2;
+    text-align: right;
+}
+
+input, button, select, textarea {
+    grid-column: 2 / 3;
+}
+
+textarea {
+    height: 4em;
+    resize: vertical;
+}
+
+/* colours */
+th, a.nav, legend, label {
+    color: black;
+}
+
+h1, button {
+    background-color: pink;
+    color: black;
+}
+
+td, th {
+    border-color: pink;
+}
+
+.welcome-message {
+    background-color: pink;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
