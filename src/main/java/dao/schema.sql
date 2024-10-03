@@ -1,13 +1,14 @@
 -- DROP TABLE IF EXISTS product;
 -- DROP TABLE IF EXISTS customer;
 
-CREATE TABLE IF NOT EXISTS PRODUCT (
+create table IF NOT EXISTS PRODUCT (
     productId varchar(20) unique,
     name varchar(50) not null,
     description varchar(100) not null,
     category varchar(50) not null,
-    listPrice numeric(6, 2) not null,
+    listPrice numeric(6,2) not null,
     quantityInStock integer not null,
+    filePath varchar(MAX) not null,
     constraint Product_PK primary key (productId)
 );
 

@@ -1,15 +1,15 @@
 package web;
 
+import java.nio.file.Paths;
+import java.util.Set;
+
 import dao.CustomerDAO;
 import dao.JdbiDaoFactory;
 import dao.ProductDAO;
 import dao.SaleDAO;
 import io.jooby.Jooby;
-import io.jooby.ServerOptions;
 import io.jooby.StatusCode;
 import io.jooby.gson.GsonModule;
-import java.nio.file.Paths;
-import java.util.Set;
 
 public class Server extends Jooby {
 

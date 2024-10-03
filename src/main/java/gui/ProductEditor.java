@@ -243,6 +243,7 @@ public class ProductEditor extends javax.swing.JDialog {
 			evt.consume();
 			cmbCategory.requestFocus();
 		}
+                
    }//GEN-LAST:event_txtDescriptionKeyPressed
 
    // Variables declaration - do not modify//GEN-BEGIN:variables

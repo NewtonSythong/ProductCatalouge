@@ -26,8 +26,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="item in items">       
-                            <td></td>
+                        <tr v-for="item in items">                        
+                            <td><img class="cart" :src="getItemUrl(item)" :alt=""></td>
                             <td>{{item.product.name}}</td>
                             <td style="text-align: center;">{{formatCurrency(item.salePrice)}}</td>
                             <td style="text-align: center;">{{item.quantityPurchased}}</td>

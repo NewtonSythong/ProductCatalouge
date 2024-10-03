@@ -15,6 +15,7 @@
             <h1>{{product.name}}</h1>
             <div class="content">
                 <div class="image">
+                    <img :src="getImgUrl()" alt="Placeholder Image"/>
                 </div> 
 
                 <div class="text">
@@ -30,9 +31,10 @@
                         </div>
 
                         <div class="plus-minus">
+                            <button id="minus" @click.prevent="decrement()" >−</button>
                             <input type="number" id="input" v-model.number="quantity" min="1" @keypress="isNumber($event)" @change="isEmpty($event)"/>
+                            <button id="plus" @click.prevent="increment()">+</button>
                         </div>
-
                         <button class="add-to-cart" @click.prevent="addProductToCart()">Add to cart</button>
                 </div>
             </div>    

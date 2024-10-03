@@ -38,16 +38,21 @@ public class Product {
 	@NotNegative(message = "Quantity must be zero or greater.")
 	private BigDecimal quantityInStock;
 
+	@NotNull(message = "File must be provided.")
+    @NotBlank(message = "File must be provided.")
+    private String filePath;
+
 	public Product() {
 	}
 
-	public Product(String productId, String name, String description, String category, BigDecimal listPrice, BigDecimal quantityInStock) {
+	public Product(String productId, String name, String description, String category, BigDecimal listPrice, BigDecimal quantityInStock, String filePath) {
 		this.productId = productId;
 		this.name = name;
 		this.description = description;
 		this.category = category;
 		this.listPrice = listPrice;
 		this.quantityInStock = quantityInStock;
+		this.filePath = filePath;
 	}
 
 	public String getProductId() {
@@ -97,6 +102,14 @@ public class Product {
 	public void setQuantityInStock(BigDecimal quantityInStock) {
 		this.quantityInStock = quantityInStock;
 	}
+
+	public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
 
 	@Override
 	public String toString() {

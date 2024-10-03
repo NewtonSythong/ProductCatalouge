@@ -1,17 +1,18 @@
 package web;
 
+import java.util.Base64;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import dao.CredentialsValidator;
 import io.jooby.Extension;
 import io.jooby.Jooby;
 import io.jooby.StatusCode;
 import io.jooby.exception.MissingValueException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.Base64;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * <p>A Jooby extension that adds a HTTP Basic Access Authentication filter to

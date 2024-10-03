@@ -28,8 +28,8 @@ const app = Vue.createApp({
 
     data() {
         return {
-// models (comma separated key/value pairs)
-
+            // models (comma separated key/value pairs)
+            quantity: 1
         };
     },
     computed: Vuex.mapState({
@@ -37,9 +37,9 @@ const app = Vue.createApp({
         items: 'items',
         customer: 'customer'
     }),
-    
+
     mounted() {
-// semicolon separated statements
+        // semicolon separated statements
 
 
     },
@@ -49,13 +49,13 @@ const app = Vue.createApp({
             let sale = new Sale(this.customer, this.items);
             console.log();
             axios.post(salesApi, sale)
-                    .then(() => {
-                        sessionStore.commit("clearItems");
-                        window.location = 'order-confirmation.html';
-                    })
-                    .catch(error => {
-                        alert(error.response.data.message);
-                    });
+                .then(() => {
+                    sessionStore.commit("clearItems");
+                    window.location = 'order-confirmation.html';
+                })
+                .catch(error => {
+                    alert(error.response.data.message);
+                });
         },
         addProductToCart() {
             sessionStore.commit("addItem", new SaleItem(this.product, this.quantity));
@@ -86,9 +86,24 @@ const app = Vue.createApp({
                 this.quantity = this.product.quantityInStock;
             }
         },
+        getImgUrl() {
+            return this.product.filePath;
+        },
+        getItemUrl(item) {
+            return item.product.filePath;
+        },
+        increment() {
+            if (this.quantity < this.product.quantityInStock)
+                this.quantity++;
+        },
+        decrement() {
+            if (this.quantity !== 1) {
+                this.quantity--;
+            }
+        }
 
     },
-// other modules
+    // other modules
     mixins: [NumberFormatter, BasicAccessAuthentication]
 
 
