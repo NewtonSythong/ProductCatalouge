@@ -37,6 +37,7 @@ const app = Vue.createApp({
         items: 'items',
         customer: 'customer'
     }),
+    
     mounted() {
 // semicolon separated statements
 
@@ -88,7 +89,7 @@ const app = Vue.createApp({
 
     },
 // other modules
-    mixins: [NumberFormatter]
+    mixins: [NumberFormatter, BasicAccessAuthentication]
 
 
 });
@@ -98,18 +99,18 @@ const app = Vue.createApp({
 // import data store
 
 // import navigation  menu component
-import { navigationMenu }
-from './navigation-menu.js';
+import { navigationMenu } from './navigation-menu.js';
 app.component('navmenu', navigationMenu);
 
 
-import { sessionStore }
-from './session-store.js';
+import { sessionStore } from './session-store.js';
 app.use(sessionStore);
 
 //import number formatter
-import { NumberFormatter }
-from './number-formatter.js';
+import { NumberFormatter } from './number-formatter.js';
+
+// import authentication module
+import { BasicAccessAuthentication } from './authentication.js';
 
 // mount the page - this needs to be the last line in the file
 app.mount("main");

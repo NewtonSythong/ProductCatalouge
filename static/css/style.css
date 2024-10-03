@@ -1,44 +1,70 @@
+:root {
+    --primary: #4a9dc3;
+    --primary-light: #6eabcf;
+    --primary-dark: #336088;
+}
+
+* {
+    /* Text */
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+header {
+    background: var(--primary);
+    color: white;
+    text-align: center;
+}
+nav {
+    overflow: hidden;
+    background: var(--primary-dark);
+    padding: 0;
+
+}
+
+nav a {
+    float: left;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav span {
+    float: right;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    background: var(--primary-light);
+}
+
 /* centre the main content area */
 main {
-    max-width: 800px;
     margin: auto;
 }
 
 /* page headings */
 h1 {
+    display: block;
     text-align: center;
-    padding: 10px;
-}
-/* nav links */
-nav a {
-    border:solid;
-    padding: 5px;
-    margin: 5px;
-    text-decoration: none;
-    border-radius: 10px;
-}
-
-nav .nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0; /* Remove any default margin */
-    padding: 5px;
-    text-decoration: none;
-    border-radius: 10px;
-    border: solid;
-}
-
-nav {
-    text-align: center;
+    padding: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background: var(--primary);
+    color: white;
 }
 
 /* tables */
 table {
-    margin: 20px;
-    margin-left: auto;
-    margin-right: auto;
     border-spacing: 0px 0px;
+    width: 100%;
 }
 
 td, th {
@@ -56,10 +82,10 @@ form {
     grid-template-columns: max-content 1fr;
     grid-gap: 1em 0.5em;
 }
-
 label {
     grid-column: 1 / 2;
     text-align: right;
+    padding: 5px;
 }
 
 input, button, select, textarea {
@@ -71,24 +97,165 @@ textarea {
     resize: vertical;
 }
 
-/* colours */
-th, a.nav, legend, label {
-    color: black;
+input, select, textarea, button{
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical
 }
 
-h1, button {
-    background-color: pink;
-    color: black;
+button:hover {
+    cursor: pointer;
+    background: var(--primary-dark);
+    color: white;
+    border: 1px solid var(--primary-dark);
+
 }
 
-td, th {
-    border-color: pink;
+legend {
+    font-weight: bold;
 }
 
-.welcome-message {
-    background-color: pink;
-    color: black;
+.category {
+    width: auto;
+    margin-right: 10px;
+}
+
+.category:focus {     
+    background-color:var(--primary-dark); 
+    color: white;
+}
+
+.categories {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.content {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    width: 100%;
+}
+.image {
+    float: left;
+    width: 49%;
+    margin-top:10px;
+}
+
+.text {
+    float: right;
+    width: 49%;
+    margin-top:10px;
+    
+}
+
+/** style the number input with plus minus button*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.plus-minus {
+    clear: both;
+    margin: 10px 0;
+    position: relative;
+    float: right;
+    display: inline-block;
+}
+
+.plus-minus #minus,
+.plus-minus #plus {
+    font-weight: bold;
+    height: 35px;
+    padding: 0;
+    width: 35px;
+    position: relative;
+}
+
+.plus-minus #input {
+    position: relative;
+    height: 35px;
+    left: -6px;
     text-align: center;
-    padding: 10px;
+    width: 40px;
+    display: inline-block;
+    font-size: 13px;
+    margin: 0 0 5px;
+    resize: vertical;
 }
+
+#input {
+    border-radius: 0px;
+}
+
+#minus {
+    margin-right:5px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+#plus {
+    left: -7px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.button-label {
+    display: inline-block;
+}
+
+.add-to-cart {
+    background: var(--primary-dark);
+    color: white;
+    font-weight: bold;
+    border-color: var(--primary-dark);
+    height: 45px;
+    margin-top: 10px;
+}
+
+.add-to-cart:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-light);
+}
+
+.cart {
+    max-width: 100px;
+}
+
+#cartTable {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+#checkoutButton {
+    width: 25%;
+    float: right;
+}
+
+#checkoutButton button {
+    background-color: black;
+    border: black;
+    color: white;
+    height: 45px;
+}
+
+#checkoutButton button:hover {
+    background-color: #303030;
+    border: #303030;
+    color: white;
+}
+
+
+
 
